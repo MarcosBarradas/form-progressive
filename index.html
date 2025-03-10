@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi Step Form - Easy Tutorials</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form id="form1">
+        <h3>create account</h3>
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <input type="password" placeholder="Confirm Password" required />
+        <div class="btn-box">
+          <button type="button" id="next1">Next</button>
+          <!-- parece redundante colocar type button dentro de um button, mas serve para evitar funções padrões do form -->
+        </div>
+      </form>
+      <form id="form2">
+        <h3>social links</h3>
+        <input type="text" placeholder="Medium" />
+        <input type="text" placeholder="Github" />
+        <input type="text" placeholder="Linkedin" />
+        <div class="btn-box">
+          <button type="button" id="back1">back</button>
+          <button type="button" id="next2">Next</button>
+        </div>
+      </form>
+      <form id="form3">
+        <h3>Contact</h3>
+        <input type="text" placeholder="first name" required />
+        <input type="text" placeholder="last name" required />
+        <input type="text" placeholder="number" required />
+
+        <div class="btn-box">
+          <button type="button" id="back2">back</button>
+          <button type="Submit" id="submit">submit</button>
+        </div>
+      </form>
+      <div class="step-row">
+        <div id="progress"></div>
+        <div class="step-col"><small>Account</small></div>
+        <div class="step-col"><small>Social</small></div>
+        <div class="step-col"><small>Contact</small></div>
+      </div>
+    </div>
+    <script>
+      let form1 = document.querySelector("#form1");
+      let form2 = document.querySelector("#form2");
+      let form3 = document.querySelector("#form3");
+      
+      let next1 = document.querySelector("#next1");
+      let next2 = document.querySelector("#next2");
+      let back1 = document.querySelector("#back1");
+      let back2 = document.querySelector("#back2");
+      let progress = document.querySelector("#progress");
+
+      console.log(form1);
+
+      next1.onclick = () => {
+         form1.style.left = "-450px";
+         form2.style.left = "40px";
+         progress.style.width = "240px";
+      }
+      back1.onclick = () => {
+         form1.style.left = "40px";
+         form2.style.left = "450px";
+         progress.style.width = "120px";
+      }
+      next2.onclick = () => {
+         form2.style.left = "-450px";
+         form3.style.left = "40px";
+         progress.style.width = "100%";
+
+      }
+      back2.onclick = () => {
+        form2.style.left = "40px";
+        form3.style.left = "450px";
+        progress.style.width = "240px";
+      }
+    </script>
+  </body>
+</html>
